@@ -1,7 +1,7 @@
 // Bakes the rendered page, absolute URLs and structured data into dist/,
 // so crawlers and link previews get full content without running JS.
 import { readFileSync, writeFileSync, rmSync } from 'node:fs'
-import { render, SITE_URL, COMPANY_LINKEDIN, projects } from '../dist-ssr/entry-server.js'
+import { render, SITE_URL, COMPANY_LINKEDIN, projects, partnerProjects } from '../dist-ssr/entry-server.js'
 
 const today = new Date().toISOString().slice(0, 10)
 
@@ -15,7 +15,7 @@ const jsonLd = {
       url: `${SITE_URL}/`,
       logo: `${SITE_URL}/logo-512.png`,
       sameAs: [COMPANY_LINKEDIN],
-      description: 'Independent technology company and the home of Moro, Centium VPN, MyCharacter AI and ZAS.',
+      description: 'Independent technology company and the home of Moro, Centium VPN and MyCharacter AI.',
     },
     {
       '@type': 'WebSite',
@@ -26,7 +26,7 @@ const jsonLd = {
     {
       '@type': 'ItemList',
       name: 'Apps built by Aethar Tech',
-      itemListElement: projects.map((p, i) => ({
+      itemListElement: [...projects, ...partnerProjects].map((p, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         item: {
@@ -38,6 +38,7 @@ const jsonLd = {
           applicationCategory: p.category,
           operatingSystem: p.os,
           creator: { '@id': `${SITE_URL}/#org` },
+          ...(p.owner && { publisher: { '@type': 'Organization', name: p.owner } }),
         },
       })),
     },

@@ -17,6 +17,7 @@
 *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 80px; }
 
 body {
   margin: 0;
@@ -143,7 +144,7 @@ p { margin: 0; }
   background-clip: text;
   color: transparent;
 }
-.hero-sub { margin-top: 22px; font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-weight: 650; }
+.hero-sub { text-wrap: balance; margin-top: 22px; font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-weight: 650; }
 .hero-lede { margin-top: 14px; max-width: 40ch; color: var(--soft); font-size: clamp(1.05rem, 1.6vw, 1.2rem); }
 
 /* Product bar: one tile per project, like a game switcher */
@@ -152,7 +153,7 @@ p { margin: 0; }
   max-width: var(--wrap);
   margin: clamp(40px, 7vh, 72px) auto 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 .product-bar a {
@@ -285,6 +286,14 @@ p { margin: 0; }
 .js .world .world-text > :nth-child(4) { transition-delay: .24s; }
 .js .world .world-text > :nth-child(n+5) { transition-delay: .32s; }
 
+/* Partner work: a quiet heading between our own products and apps made for others */
+.partners-intro {
+  padding: clamp(72px, 9vw, 120px) max(var(--gutter), calc((100vw - var(--wrap)) / 2)) 0;
+  background: var(--night-2);
+}
+.partners-intro h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; }
+.partners-intro p { margin-top: 12px; color: var(--soft); font-size: 1.15rem; }
+
 /* About */
 .about {
   padding: clamp(80px, 11vw, 150px) max(var(--gutter), calc((100vw - var(--wrap)) / 2));
@@ -336,7 +345,6 @@ p { margin: 0; }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; text-align: left; }
   .hero-mark { max-width: 200px; justify-self: start; }
-  .product-bar { grid-template-columns: repeat(2, 1fr); }
   .world { grid-template-columns: 1fr; min-height: 0; }
   .world-flip .world-text { order: 0; }
   .fan { height: 440px; }
@@ -344,6 +352,7 @@ p { margin: 0; }
 }
 @media (max-width: 560px) {
   .site-header nav a:not(:last-child) { display: none; }
+  .product-bar { grid-template-columns: 1fr; }
   .product-bar a { padding: 12px; gap: 10px; font-size: .95rem; }
   .product-bar img { width: 36px; height: 36px; }
   .fan { height: 380px; }

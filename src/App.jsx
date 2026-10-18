@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { COMPANY_LINKEDIN, FOUNDER_LINKEDIN, projects } from './site.js'
+import { COMPANY_LINKEDIN, FOUNDER_LINKEDIN, partnerProjects, projects } from './site.js'
 
 const reducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -257,7 +257,7 @@ export default function App() {
                 <span className="rise" style={{ '--d': 0 }}>Aethar Tech</span>
               </h1>
               <p className="hero-sub rise" style={{ '--d': 1 }}>
-                Home of Moro, Centium VPN, MyCharacter AI and ZAS.
+                Home of Moro, Centium VPN and MyCharacter AI.
               </p>
               <p className="hero-lede rise" style={{ '--d': 2 }}>
                 We dream up our own products and take each one all the way from the first idea to the phone in your hand.
@@ -278,16 +278,22 @@ export default function App() {
           {projects.map((p, i) => <World key={p.id} p={p} index={i} />)}
         </div>
 
+        <section className="partners-intro" aria-labelledby="partners-title">
+          <h2 id="partners-title">Made for partners</h2>
+          <p>We also design and build apps for organisations we believe in.</p>
+        </section>
+        {partnerProjects.map((p, i) => <World key={p.id} p={p} index={projects.length + i} />)}
+
         <section id="about" className="about" aria-labelledby="about-title">
           <h2 id="about-title">One company, many worlds</h2>
           <p className="about-lede">
             Aethar Tech is an independent technology company. Every product starts as one of our own ideas,
-            and we design, build and launch it ourselves. Four are live today, and more are on the way.
+            and we design, build and launch it ourselves. Three are live today, more are on the way, and we built the ZAS app for the Zimbabwe Astronomical Society.
           </p>
           <div className="values">
             <div>
               <h3>Made for real phones</h3>
-              <p>Our apps keep working on slow or patchy data. ZAS reads lessons offline and works out the sky on the phone itself.</p>
+              <p>Our apps are made for slow or patchy data. MyCharacter AI still saves a reply if you leave the app halfway through it.</p>
             </div>
             <div>
               <h3>Private by default</h3>
@@ -314,7 +320,7 @@ export default function App() {
       <footer className="site-footer">
         <p>© {new Date().getFullYear()} Aethar Tech · <a href={COMPANY_LINKEDIN} target="_blank" rel="noopener">LinkedIn</a></p>
         <ul aria-label="Our projects">
-          {projects.map((p) => (
+          {[...projects, ...partnerProjects].map((p) => (
             <li key={p.id}><a href={p.url} target="_blank" rel="noopener">{p.name}</a></li>
           ))}
         </ul>

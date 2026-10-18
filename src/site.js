@@ -56,11 +56,16 @@ export const projects = [
     category: 'EntertainmentApplication',
     os: 'Android',
   },
+]
+
+// Apps we made for other organisations. They are listed, but not as our own products.
+export const partnerProjects = [
   {
     id: 'zas',
     name: 'ZAS',
     tagline: 'The southern sky, from Zimbabwe.',
-    kind: 'Astronomy',
+    kind: 'Made for the Zimbabwe Astronomical Society',
+    owner: 'Zimbabwe Astronomical Society',
     url: 'https://zas-explore-universe.web.app',
     apk: `${RELEASES}/zas-v0.1.0/zas-astronomy-0.1.0-arm64.apk`,
     icon: '/img/zas.webp',
@@ -68,7 +73,7 @@ export const projects = [
     color: '#FFFFFF',
     glow: '#1A1F4D',
     summary:
-      'The official app of the Zimbabwe Astronomical Society. See what’s up tonight over your town, catch every eclipse and meteor shower, and earn certificates as you learn the stars.',
+      'We designed and built the official app of the Zimbabwe Astronomical Society. It shows what’s up tonight over your town, every eclipse and meteor shower, and short courses with certificates.',
     platforms: ['Android', 'Web'],
     category: 'EducationalApplication',
     os: 'Android, Web',
