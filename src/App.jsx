@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { CONTACT_EMAIL, projects } from './site.js'
+import { COMPANY_LINKEDIN, FOUNDER_LINKEDIN, projects } from './site.js'
 
 const reducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -303,13 +303,16 @@ export default function App() {
         <section id="contact" className="contact" aria-labelledby="contact-title">
           <Mark size={64} id="ct" />
           <h2 id="contact-title">Say hello</h2>
-          <p>For press, partnerships and careers, write to us. We read every message.</p>
-          <a className="button button-halo" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          <p>For press, partnerships and careers, reach us on LinkedIn. We read every message.</p>
+          <div className="contact-actions">
+            <a className="button button-halo" href={FOUNDER_LINKEDIN} target="_blank" rel="noopener">Message us on LinkedIn</a>
+            <a className="button button-ghost" href={COMPANY_LINKEDIN} target="_blank" rel="noopener">Follow Aethar Tech</a>
+          </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <p>© {new Date().getFullYear()} Aethar Tech</p>
+        <p>© {new Date().getFullYear()} Aethar Tech · <a href={COMPANY_LINKEDIN} target="_blank" rel="noopener">LinkedIn</a></p>
         <ul aria-label="Our projects">
           {projects.map((p) => (
             <li key={p.id}><a href={p.url} target="_blank" rel="noopener">{p.name}</a></li>

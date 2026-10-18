@@ -317,7 +317,7 @@ p { margin: 0; }
 .contact .mark path:nth-of-type(2) { stroke: #fff; }
 .contact h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; }
 .contact p { margin-top: 14px; max-width: 44ch; color: #D6D3FF; font-size: 1.2rem; }
-.contact .button { margin-top: 30px; overflow-wrap: anywhere; }
+.contact-actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Footer */
 .site-footer {

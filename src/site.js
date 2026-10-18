@@ -1,6 +1,7 @@
 // SITE_URL is used for canonical URLs, the sitemap, Open Graph tags and structured data.
 export const SITE_URL = 'https://aethar-tech.web.app'
-export const CONTACT_EMAIL = 'mashikiselby@gmail.com'
+export const FOUNDER_LINKEDIN = 'https://www.linkedin.com/in/selby-mashiki-974a58229/'
+export const COMPANY_LINKEDIN = 'https://www.linkedin.com/company/aethar-techno/'
 
 const RELEASES = 'https://github.com/Kolgrim33/aethar-tech/releases/download'
 
