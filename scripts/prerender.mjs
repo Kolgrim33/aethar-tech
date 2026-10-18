@@ -14,7 +14,7 @@ const jsonLd = {
       name: 'Aethar Tech',
       url: `${SITE_URL}/`,
       logo: `${SITE_URL}/logo-512.png`,
-      description: 'Software studio building web, Android and desktop apps.',
+      description: 'Independent technology company and the home of Moro, Centium VPN, MyCharacter AI and ZAS.',
     },
     {
       '@type': 'WebSite',
